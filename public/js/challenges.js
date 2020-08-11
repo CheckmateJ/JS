@@ -86,18 +86,27 @@ function Calculate(bill)
 // console.log(Calculate(100));
 
 var bills = [30, 100,300]
-var tips = [console.log(Calculate(bills[0])),
-            console.log(Calculate(bills[1])),
-            console.log(Calculate(bills[2]))];
+// var tips = [Calculate(bills[0]),
+//             Calculate(bills[1]),
+//             Calculate(bills[2])];
 
 
 var tips = [];
 for(var i =0; i<bills.length; i++)
 {
-    tips = [Calculate(bills[i]),];
+    tips[i] = Calculate(bills[i]);
     for(var j=0; j<tips.length; j++) 
     {
         console.log(tips[j]);
     }
     
 }
+
+
+var finalPaid = [bills[0] + tips[0],
+                 bills[1] + tips[1]]; 
+
+    
+console.log(bills[0])
+console.log(tips[0])
+console.log(finalPaid);
