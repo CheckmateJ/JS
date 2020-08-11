@@ -10,21 +10,21 @@ var heightMark = 1.6
 var bmiJohn = massJohn / (heightJohn * heightJohn);
 var bmiMark = massMark / (heightMark * heightMark);
 
-console.log(bmiJohn, bmiMark)
+// console.log(bmiJohn, bmiMark)
 
 //boolean method 
 
 var johnHigherBmi = bmiJohn > bmiMark;
 
-console.log('Is John\'s bmi higher than Mark\'s bmi?' + johnHigherBmi)
+// console.log('Is John\'s bmi higher than Mark\'s bmi?' + johnHigherBmi)
 
 
 // or  if else method 
 
 if(bmiJohn > bmiMark){
-    console.log('John has higher Bmi than Mark')
+    // console.log('John has higher Bmi than Mark')
 }else{
-    console.log('Mark has higher bmi than John');
+    // console.log('Mark has higher bmi than John');
 }
 
 // ######################## CHALLENGE 2 ########################
@@ -39,7 +39,7 @@ for (i = 0; i < johnScores.length; i++){
 }
 
 var averageScoresForJohn = ScoresForJohn / 3
-console.log('John average scores = ' + averageScoresForJohn);
+// console.log('John average scores = ' + averageScoresForJohn);
 
 var markScores = [116,94,123];
 var ScoresForMark = 0;
@@ -50,12 +50,12 @@ for (i = 0; i < markScores.length; i++){
 }
 
 var averageScoresForMark = ScoresForMark / 3
-console.log('Mark average scores = ' + averageScoresForMark)
+// console.log('Mark average scores = ' + averageScoresForMark)
 
 if(averageScoresForMark > averageScoresForJohn){
-    console.log('Mark\'s team win ')
+    // console.log('Mark\'s team win ')
 }else{
-    console.log('John\'s teams win')
+    // console.log('John\'s teams win')
 }
 
 
@@ -97,16 +97,57 @@ for(var i =0; i<bills.length; i++)
     tips[i] = Calculate(bills[i]);
     for(var j=0; j<tips.length; j++) 
     {
-        console.log(tips[j]);
+        // console.log(tips[j]);
     }
     
 }
 
 
-var finalPaid = [bills[0] + tips[0],
-                 bills[1] + tips[1]]; 
+// var finalPaid = [bills[0] + tips[0],
+//                  bills[1] + tips[1]]; 
 
     
-console.log(bills[0])
-console.log(tips[0])
-console.log(finalPaid);
+// console.log(bills[0])
+// console.log(tips[0])
+// console.log(finalPaid);
+
+
+// ######################## CHALLENGE 4 ########################
+
+var Mark = {
+    firstName: 'Mark',
+    lastName: 'Anderson',
+    weight: 80,
+    height: 1.78,
+    calcBMI: function()
+    {
+        return this.weight / (this.height * this.height);
+    }
+}
+
+console.log(Mark.calcBMI());
+Mark.BMI = Mark.calcBMI();
+console.log(Mark);
+
+var John = {
+    firstName: 'Mark',
+    lastName: 'Smith',
+    weight: 70,
+    height: 1.88,
+    calcBMI: function()
+    {
+        this.BMI =  this.weight / (this.height * this.height);
+    }
+}
+
+John.calcBMI();
+console.log(John);
+
+if (John.BMI > Mark.BMI)
+{
+    console.log('John has highest bmi than Mark');
+}
+else
+{
+    console.log('Mark has highest BMI than John');
+}
