@@ -21,40 +21,40 @@ var johnHigherBmi = bmiJohn > bmiMark;
 
 // or  if else method 
 
-if(bmiJohn > bmiMark){
+if (bmiJohn > bmiMark) {
     // console.log('John has higher Bmi than Mark')
-}else{
+} else {
     // console.log('Mark has higher bmi than John');
 }
 
 // ######################## CHALLENGE 2 ########################
- 
 
-var johnScores = [819,120,103];
+
+var johnScores = [819, 120, 103];
 var ScoresForJohn = 0;
 
 
-for (i = 0; i < johnScores.length; i++){
+for (i = 0; i < johnScores.length; i++) {
     ScoresForJohn += johnScores[i]
 }
 
 var averageScoresForJohn = ScoresForJohn / 3
 // console.log('John average scores = ' + averageScoresForJohn);
 
-var markScores = [116,94,123];
+var markScores = [116, 94, 123];
 var ScoresForMark = 0;
 
 
-for (i = 0; i < markScores.length; i++){
+for (i = 0; i < markScores.length; i++) {
     ScoresForMark += markScores[i]
 }
 
 var averageScoresForMark = ScoresForMark / 3
 // console.log('Mark average scores = ' + averageScoresForMark)
 
-if(averageScoresForMark > averageScoresForJohn){
+if (averageScoresForMark > averageScoresForJohn) {
     // console.log('Mark\'s team win ')
-}else{
+} else {
     // console.log('John\'s teams win')
 }
 
@@ -62,20 +62,16 @@ if(averageScoresForMark > averageScoresForJohn){
 // ######################## CHALLENGE 3 ########################
 
 
-function Calculate(bill)
-{
-    var tip = 0; 
+function Calculate(bill) {
+    var tip = 0;
 
-    if (bill < 50)
-    {
+    if (bill < 50) {
         tip = 0.2;
     }
-    else if (bill >=50 && bill <=200)
-    {
+    else if (bill >= 50 && bill <= 200) {
         tip = 0.15;
     }
-    else
-    {
+    else {
         tip = 0.1;
     }
 
@@ -85,28 +81,26 @@ function Calculate(bill)
 // console.log(Calculate(30));
 // console.log(Calculate(100));
 
-var bills = [30, 100,300]
+var bills = [30, 100, 300]
 // var tips = [Calculate(bills[0]),
 //             Calculate(bills[1]),
 //             Calculate(bills[2])];
 
 
 var tips = [];
-for(var i =0; i<bills.length; i++)
-{
+for (var i = 0; i < bills.length; i++) {
     tips[i] = Calculate(bills[i]);
-    for(var j=0; j<tips.length; j++) 
-    {
+    for (var j = 0; j < tips.length; j++) {
         // console.log(tips[j]);
     }
-    
+
 }
 
 
 // var finalPaid = [bills[0] + tips[0],
 //                  bills[1] + tips[1]]; 
 
-    
+
 // console.log(bills[0])
 // console.log(tips[0])
 // console.log(finalPaid);
@@ -119,35 +113,60 @@ var Mark = {
     lastName: 'Anderson',
     weight: 80,
     height: 1.78,
-    calcBMI: function()
-    {
+    calcBMI: function () {
         return this.weight / (this.height * this.height);
     }
 }
 
-console.log(Mark.calcBMI());
+// console.log(Mark.calcBMI());
 Mark.BMI = Mark.calcBMI();
-console.log(Mark);
+// console.log(Mark);
 
 var John = {
     firstName: 'Mark',
     lastName: 'Smith',
     weight: 70,
     height: 1.88,
-    calcBMI: function()
-    {
-        this.BMI =  this.weight / (this.height * this.height);
+    calcBMI: function () {
+        this.BMI = this.weight / (this.height * this.height);
     }
 }
 
 John.calcBMI();
-console.log(John);
+// console.log(John);
 
-if (John.BMI > Mark.BMI)
-{
-    console.log('John has highest bmi than Mark');
+if (John.BMI > Mark.BMI) {
+    // console.log('John has highest bmi than Mark');
 }
-else
-{
-    console.log('Mark has highest BMI than John');
+else {
+    // console.log('Mark has highest BMI than John');
 }
+
+
+// ######################## CHALLENGE 5 ########################
+
+var John =
+{
+    bills: [124, 48, 268, 180],
+    allPaid: [],
+    tip: [],
+    calcTips: function () {
+
+        var percentage = 0;
+
+        for (var i = 0; i < this.bills.length; i++) {
+            if (this.bills[i] < 50) {
+                percentage = 0.2;
+            }
+            else if (this.bills[i] >= 50 && this.bills[i] <= 200) {
+                percentage = 0.15;
+            } else {
+                percentage = 0.1;
+            }
+            this.tip[i] = (percentage * this.bills[i]).toFixed(0);
+            this.allPaid[i] = this.bills[i] + this.bills[i] * percentage;
+        }
+    },
+}
+John.calcTips();
+console.log(John);
