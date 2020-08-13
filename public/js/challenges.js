@@ -170,3 +170,7 @@ var John =
 }
 John.calcTips();
 console.log(John);
+
+
+
+    
