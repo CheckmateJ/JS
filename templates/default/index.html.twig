@@ -8,28 +8,48 @@
 	<div class="container">
 		<div class="players">
 			<div class="player-0">
-				<div class="player-zero"><strong>Player 1</strong></div>
-				<div class="total-player-zero">0</div>
-				<div class="current-player-zero-label"><label>current</label></div>
+				<div class="player-zero">
+					<strong>Player 1</strong>
+				</div>
+				<div class="total-player-zero-label">
+					<label>All points achieved:
+					</label>
+				</div>
+				<div class="total-player-zero" id="total-1">0</div>
+				<div class="current-player-zero-label">
+					<label>current</label>
+				</div>
 				<div class="current-player-zero-score" id="current-0">10</div>
 			</div>
 			<div class="player-1">
-				<div class="player-one"><strong>Player 2</strong></div>
+				<div class="player-one">
+					<strong>Player 2</strong>
+				</div>
+				<div class="total-player-one-label">
+					<label>All points achieved:
+					</label>
+				</div>
 				<div class="total-player-one">0</div>
-				<div class="current-player-one-label"><label>current</label></div>
+				<div class="current-player-one-label">
+					<label>current</label>
+				</div>
 				<div class="current-player-one-score" id="current-1">10</div>
 			</div>
 		</div>
 	</div>
+	<img src="{{ asset('../img/dice-3.png')}}" alt="Dice" class="Dice">
 	<div class="buttons">
+
 		<div class="btn-new-game">
 			<button type="button">New game</button>
 		</div>
-		<div class="btn-roll-dice">
-			<button type="button">Roll dice</button>
+		<button class="btn-roll-dice">Roll dice</button>
+		<div>
+			<button class="btn-hold">Hold</button>
 		</div>
-		<div class="btn-hold">
-			<button type="button">Hold</button>
-		</div>
+
 	</div>
-</div></div><script type="text/javascript" src="{{ asset('../js/pig_game.js') }}"></script>{% endblock %}
+
+
+	<script type="text/javascript" src="{{ asset('../js/pig_game.js') }}"></script>
+{% endblock %}
