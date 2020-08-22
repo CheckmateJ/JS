@@ -21,7 +21,30 @@ document.querySelector('.btn-roll-dice').addEventListener('click', function(){
     dice = Math.floor(Math.random() * 6) + 1 ;
 
     // Display the result
-    document.querySelector('#current-scores-' + activePlayer).textContent = dice;
+    if(dice !== 1)
+    {
+        // add scores
+        roundScore += dice;
+        document.querySelector('#current-scores-' + activePlayer).textContent = roundScore;
+        document.querySelector('.btn-hold').addEventListener('click', function() {
+            scores[activePlayer] = roundScore;
+            document.querySelector('#total-scores-' + activePlayer).textContent = scores[activePlayer];
+        
+        })
+    }else 
+    {
+        roundScore = 0;
+        // next player
+        if(activePlayer === 0)
+        {
+            activePlayer = 1 ;
+        }
+        else
+        {
+            activePlayer = 0;
+        }
+    }
+    
     diceDOM.src = "../img/dice-" + dice + ".png";
 
 })
