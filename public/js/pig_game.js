@@ -1,6 +1,6 @@
 var scores, roundScore, activePlayer, dice;
 
-scores = [0,0];
+scores = [0, 0];
 roundScore = 0;
 activePlayer = 0;
 
@@ -9,43 +9,49 @@ document.querySelector('.dice').style.display = 'none';
 
 
 // if click new game - start game 
-if(document.querySelector('.btn-new-game').addEventListener('click', function() {
+// if(document.querySelector('.btn-new-game').addEventListener('click', function() {
+
+// document.getElementById('#current-scores-0').textContent = 0;
+// document.getElementById('#current-scores-1').textContent = 0;
+// document.getElementById('#current-scores-0').textContent = 0;
+// document.getElementById('#current-scores-1').textContent = 0;
+
+
+// start to count scores
+document.querySelector('.btn-roll-dice').addEventListener('click', function() {
+
+    // Random number    
+    dice = Math.floor(Math.random() * 6) + 1;
 
     var diceDOM = document.querySelector('.dice');
     diceDOM.style.display = 'block';
-
-// start to count scores
-document.querySelector('.btn-roll-dice').addEventListener('click', function(){
-    
-    // Random number
-    dice = Math.floor(Math.random() * 6) + 1 ;
+    diceDOM.src = "../img/dice-" + dice + ".png";
 
     // Display the result
-    if(dice !== 1)
-    {
+    // change player if dice = 1
+    if (dice !== 1) {
         // add scores
         roundScore += dice;
         document.querySelector('#current-scores-' + activePlayer).textContent = roundScore;
-        document.querySelector('.btn-hold').addEventListener('click', function() {
-            scores[activePlayer] = roundScore;
-            document.querySelector('#total-scores-' + activePlayer).textContent = scores[activePlayer];
-        
-        })
-    }else 
-    {
-        roundScore = 0;
-        // next player
-        if(activePlayer === 0)
-        {
-            activePlayer = 1 ;
-        }
-        else
-        {
-            activePlayer = 0;
-        }
-    }
-    
-    diceDOM.src = "../img/dice-" + dice + ".png";
 
-})
-}));
+    } else if (dice === 1) {
+
+        // next player
+        document.querySelector('#current-scores-' + activePlayer).textContent = 0;
+        roundScore = 0;
+        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+
+
+    }
+
+});
+
+
+// switch player and safe scores as total
+document.querySelector('.btn-hold').addEventListener('click', function() {
+    scores[activePlayer] += roundScore;
+    roundScore = 0;
+    document.querySelector('#total-scores-' + activePlayer).textContent = scores[activePlayer];
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+
+});

@@ -1,12 +1,14 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     background-color: darkslategrey;
 }
-.container{
+
+.container {
     width: 1000px;
     height: 600px;
     position: absolute;
@@ -15,15 +17,17 @@ body{
     transform: translate(-50%, -50%);
     background: linear-gradient(to right, lightgray 50%, white 50%);
 }
+
 .player-0 {
-   float: left;
-   width: 150px;
-   height: 150px;
-   margin-left: 15%;
-   margin-top: 12%;
-   background-color: lightgray;
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-left: 15%;
+    margin-top: 12%;
+    background-color: lightgray;
 }
-.player-1{
+
+.player-1 {
     float: right;
     margin-right: 15%;
     margin-top: 12%;
@@ -31,13 +35,16 @@ body{
     height: 150px;
     background-color: white;
 }
-.player-name, .current-scores{
+
+.player-name,
+.current-scores {
     text-align: center;
     margin-top: 20px;
     font-size: 30px;
     font-weight: bold;
 }
-.card-total-scores{
+
+.card-total-scores {
     background-color: darkred;
     color: #fff;
     width: 80%;
@@ -46,14 +53,16 @@ body{
     padding: 12px;
     text-align: center;
 }
-.total-scores{
+
+.total-scores {
     text-transform: uppercase;
     margin-bottom: 10px;
     color: #222;
     padding: 10px;
     font-size: 30px;
 }
-.buttons{
+
+.buttons {
     position: absolute;
     left: 50%;
     display: flex;
@@ -63,12 +72,22 @@ body{
     justify-content: space-between;
     transform: translate(-50%);
 }
-.buttons > button{
+
+.buttons>button {
     font-size: 20px;
 }
-.btn-new-game{margin-top: 100px; }
-.btn-roll-dice{margin-top: 350px;}
-.btn-hold{margin-top: 10px;}
+
+.btn-new-game {
+    margin-top: 100px;
+}
+
+.btn-roll-dice {
+    margin-top: 350px;
+}
+
+.btn-hold {
+    margin-top: 10px;
+}
 
 .dice {
     position: absolute;
