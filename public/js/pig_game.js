@@ -3,22 +3,24 @@ var scores, roundScore, activePlayer, dice, finishGame;
 scores = [0, 0];
 roundScore = 0;
 activePlayer = 0;
-finishGame = 20;
+finishGame = 10;
 
 
 document.querySelector('.dice').style.display = 'none';
 
 
-// if click new game - start game 
-document.querySelector('.btn-new-game').addEventListener('click', function() {
-
+function clear() {
     document.querySelector('#current-scores-0').textContent = 0;
     document.querySelector('#current-scores-1').textContent = 0;
     document.querySelector('#total-scores-0').textContent = 0;
     document.querySelector('#total-scores-1').textContent = 0;
     scores = [0, 0];
+    document.querySelector('.dice').style.display = 'none';
+}
+clear();
 
-});
+// if click new game - start game 
+document.querySelector('.btn-new-game').addEventListener('click', clear);
 
 // start to count scores
 document.querySelector('.btn-roll-dice').addEventListener('click', function() {
@@ -56,8 +58,10 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     scores[activePlayer] += roundScore;
     roundScore = 0;
     document.querySelector('#total-scores-' + activePlayer).textContent = scores[activePlayer];
-    if (scores[activePlayer] > finishGame) {
+    // if scores > 100  - finish game
+    if (scores[activePlayer] >= finishGame) {
         alert('Player ' + (activePlayer + 1) + " won");
+        clear();
     }
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
 
