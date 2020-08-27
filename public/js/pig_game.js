@@ -1,25 +1,27 @@
-var scores, roundScore, activePlayer, dice, finishGame, doubleSix, dbSix;
+var scores, roundScore, activePlayer, dice, diceTwo, finishGame, secondDiceDoubleSix, dbSix;
 
 
 doubleSix = 0;
-dbSix = 0;
+secondDiceDoubleSix = 0;
 // finishGame = document.getElementById('number').value
 
 
 document.querySelector('.dice').style.display = 'none';
+document.querySelector('.dice2').style.display = 'none';
 
 
 function clear() {
     document.querySelector('.btn-roll-dice').style.display = 'none';
     document.querySelector('.btn-hold').style.display = 'none';
     document.querySelector('.dice').style.display = 'none';
+    document.querySelector('.dice2').style.display = 'none';
 }
 clear();
 
-function getValue() {
-    finishGame = document.getElementById('number').value;
-    alert(finishGame);
-}
+// function getValue() {
+//     finishGame = document.getElementById('number').value;
+//     alert(finishGame);
+// }
 
 // getValue();
 
@@ -51,9 +53,16 @@ document.querySelector('.btn-roll-dice').addEventListener('click', function() {
 
     // Random number    
     dice = Math.floor(Math.random() * 6 + 1);
+    diceTwo = Math.floor(Math.random() * 6 + 1);
+
+    if (dice === 6 && secondDiceDoubleSix === 6 || diceTwo === 6 && doubleSix === 6) {
+        nextPlayer();
+    }
+
     // check if dice = 6  twice in a row -  change player
     dice === 6 ? doubleSix += 6 : doubleSix = 0;
-    if (dice === 6 && doubleSix === 12) {
+    diceTwo === 6 ? secondDiceDoubleSix += 6 : secondDiceDoubleSix = 0;
+    if (dice === 6 && doubleSix === 12 || diceTwo === 6 && secondDiceDoubleSix === 12) {
         nextPlayer();
     }
 
@@ -61,15 +70,19 @@ document.querySelector('.btn-roll-dice').addEventListener('click', function() {
     diceDOM.style.display = 'block';
     diceDOM.src = "../img/dice-" + dice + ".png";
 
+    var diceTwoDOM = document.querySelector('.dice2');
+    diceTwoDOM.style.display = 'block';
+    diceTwoDOM.src = "../img/dice2-" + diceTwo + ".png";
+
     // Display the result
     // change player if dice = 1 or dice = 12
-    if (dice !== 1 && doubleSix !== 12) {
+    if (dice !== 1 && doubleSix !== 12 && diceTwo !== 1 && secondDiceDoubleSix !== 12) {
         // add scores
         roundScore += dice;
+        roundScore += diceTwo;
         document.querySelector('#current-scores-' + activePlayer).textContent = roundScore;
-        console.log(doubleSix)
 
-    } else if (dice === 1) {
+    } else if (dice === 1 || diceTwo === 1) {
 
         // next player
         nextPlayer();
@@ -81,6 +94,8 @@ document.querySelector('.btn-roll-dice').addEventListener('click', function() {
 function nextPlayer() {
     document.querySelector('#current-scores-' + activePlayer).textContent = 0;
     roundScore = 0;
+    doubleSix = 0;
+    secondDiceDoubleSix = 0;
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
 }
 
