@@ -3,7 +3,7 @@ var scores, roundScore, activePlayer, dice, diceTwo, finishGame, secondDiceDoubl
 
 doubleSix = 0;
 secondDiceDoubleSix = 0;
-// finishGame = document.getElementById('number').value
+finishGame = 100;
 
 
 document.querySelector('.dice').style.display = 'none';
@@ -17,13 +17,6 @@ function clear() {
     document.querySelector('.dice2').style.display = 'none';
 }
 clear();
-
-// function getValue() {
-//     finishGame = document.getElementById('number').value;
-//     alert(finishGame);
-// }
-
-// getValue();
 
 function newGame() {
 
