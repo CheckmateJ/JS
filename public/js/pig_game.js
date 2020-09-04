@@ -106,3 +106,17 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
 
 });
+
+var numberOfTests = readline()
+
+for (var i = 1; i <= numberOfTests; i++) {
+    var ckw = readline()
+    var [c, k, w] = ckw.split(' ')
+    var answer = test(c, k, w) ? 'yes' : 'no'
+
+    console.log(answer)
+}
+
+function test(c, k, w) {
+    return c * w <= k
+}
